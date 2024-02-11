@@ -63,7 +63,7 @@ The following table has Luau's reserved keywords mapped to their C# equivalent. 
         </tr>
         <tr>
             <td>`for`</td>
-            <td>`for` / `foreach`</td>
+            <td>`for` or `foreach`</td>
         </tr>
         <tr>
             <td>`function`</td>
@@ -130,21 +130,21 @@ The following table has Luau's reserved keywords mapped to their C# equivalent. 
 
 ```lua title='Strings in Luau'
 -- Multi-line string
-[[This is a string that,
+local multiLineString = [[This is a string that,
 when printed, appears
 on multiple lines]]
 
 -- Concatenation
-s1 = "This is a string "
-s2 = "made with two parts."
-endString = s1 .. s2
+local s1 = "This is a string "
+local s2 = "made with two parts."
+local endString = s1 .. s2
 ```
 
 ```cs title='Strings in C#'
 // Multi-line string
-"This is a string that,\nwhen printed, appears\n on multiple lines."
+string multiLineString1 = "This is a string that,\nwhen printed, appears\n on multiple lines.";
 
-string multiLineString = @"This is a string that,
+string multiLineString2 = @"This is a string that,
 when printed, appears
 on multiple lines";
 
@@ -355,29 +355,38 @@ string variableName;
 
 ## Scope
 
-In Luau, you can write variables and logic in a tighter scope than their function or class by nesting the logic within `do` and `end` keywords, similar to curly brackets `{}` in C#. For more details on scope in Luau, please see the [Scope](./scope.md).
+In Luau, you can write variables and logic in a tighter scope than their function or class by nesting the logic within `do` and `end` keywords, similar to curly brackets `{}` in C#. For more details, see [Scope](./scope.md).
 
 ```lua title='Scoping in Luau'
-local example = "Example text"
+local outerVar = 'Outer scope text'
 
 do
-	example ..= " changed!"
-	print(example)  -- Outputs 'Example text changed!'
+    -- Modify 'outerVar'
+    outerVar = 'Inner scope modified text'
+    -- Introduce a local variable
+    local innerVar = 'Inner scope text'
+    print('1: ' .. outerVar)    -- prints "1: Inner scope modified text"
+    print('2: ' .. innerVar)    -- prints "2: Inner scope text"
 end
 
-print(example)  -- Outputs 'Example text'
+print('3: ' .. outerVar)        -- prints "3: "Inner scope modified text"
+-- Attempting to print 'innerVar' here would fail
 ```
 
 ```cs title='Scoping in C#'
-string example = "Example text";
+var outerVar = "Outer scope text";
 
 {
-	example += " changed!";
-	Console.WriteLine(example);  // Outputs 'Example text changed!'
+	// Modify 'outerVar'
+	outerVar = "Inner scope modified text";
+	// Introduce a local variable
+	var innerVar = "Inner scope text";
+	Console.WriteLine("1: " + outerVar);    // prints "1: Inner scope modified text"
+	Console.WriteLine("2: " + innerVar);    // prints "2: Inner scope text"
 }
 
-
-Console.WriteLine(example);  // Outputs 'Example text'
+Console.WriteLine("3: " + outerVar);		// prints "3: "Inner scope modified text"
+// Attempting to print 'innerVar' here would fail
 ```
 
 ## Conditional Statements
@@ -511,6 +520,8 @@ foreach (KeyValuePair<string, int> entry in abcDictionary) {
 }
 ```
 
+Luau also supports [generalized iteration](./control-structures.md#generalized-iteration), which further simplifies working with tables.
+
 ## Functions
 
 To learn more about functions in Luau, see [Functions](./functions.md).
@@ -569,7 +580,7 @@ string namedArguments(string name, string dob) {
 namedArguments(name: "Bob", dob: "4/1/2000");
 ```
 
-## Try/Catch Structures
+## Try-Catch Structures
 
 ```lua title='Try/Catch Structures in Luau'
 local function fireWeapon()

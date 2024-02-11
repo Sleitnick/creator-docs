@@ -141,13 +141,13 @@ The skinned character's mesh positions aren't updated when the Creature animates
 1. We placed the following `Class.LocalScript` in **StarterPlayer** → **StarterPlayerScripts**. This essentially runs the VFX update function.
 
    ```lua title='Local Script'
-   -- Add this snippet to an existing local script that makes Stepped
+   -- Add this snippet to an existing local script that makes PreSimulation
    -- connections
 
    local RunService = game:GetService("RunService")
    local vfx = require(workspace.VfxUpdateModule)
 
-   RunService.Stepped:Connect(vfx.updateVfx)
+   RunService.PreSimulation:Connect(vfx.updateVfx)
    ```
 
    ```lua title='Module Script'
@@ -164,7 +164,7 @@ The skinned character's mesh positions aren't updated when the Creature animates
    --
    -- To Use:
    -- A LocalScript should require this module, then connect
-   -- VfxUpdateModule.updateVfx to the RunService.Stepped event.
+   -- VfxUpdateModule.updateVfx to the RunService.PreSimulation event.
 
    local VfxUpdateModule = {}
    local CollectionService = game:GetService("CollectionService")
@@ -175,15 +175,15 @@ The skinned character's mesh positions aren't updated when the Creature animates
    local vfxTable = {} -- where we will store all the parts and offsets
 
    -- Assign a table to each model that will hold all vfx parts and offset
-   for _, model in pairs(vfxModels) do
+   for _, model in vfxModels do
     vfxTable[model] = {}
     local vfxParts = model:FindFirstChild("VFX"):GetChildren() -- Find theVFX folder
 
     -- Find the bone via attribute and calculate the offset for each part.
-    for _,part in pairs(vfxParts) do
+    for _,part in vfxParts do
       local name = part:GetAttribute("AttachedBoneName")
       local bone = model:FindFirstChild(name, true)
-      if (bone) then
+      if bone then
         local offset = (bone.TransformedWorldCFrame:inverse() * part.CFrame)
         vfxTable[model][part] = {bone, offset}
       else
@@ -193,11 +193,11 @@ The skinned character's mesh positions aren't updated when the Creature animates
    end
    print(vfxTable)
 
-   -- UPDATE - This should be linked to every client's RunService.Stepped
+   -- UPDATE - This should be linked to every client's RunService.PreSimulation
    -- Go through all models, then update all parts on the model to match the bonecframe.
    function VfxUpdateModule.updateVfx()
-    for model, vfxParts in pairs(vfxTable) do
-      for part, bone in pairs(vfxParts) do
+    for model, vfxParts in vfxTable do
+      for part, bone in vfxParts do
         part.CFrame = bone[1].TransformedWorldCFrame * bone[2]
       end
     end

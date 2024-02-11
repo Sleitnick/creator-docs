@@ -353,6 +353,21 @@ properties:
     serialization:
       can_load: true
       can_save: true
+  - name: DragDetector.PermissionPolicy
+    summary: ''
+    description: ''
+    code_samples: []
+    type: DragDetectorPermissionPolicy
+    tags: []
+    deprecation_message: ''
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Behavior
+    serialization:
+      can_load: true
+      can_save: true
   - name: DragDetector.ReferenceInstance
     summary: |
       An instance whose `Datatype.CFrame` is the reference frame for the drag
@@ -494,7 +509,7 @@ properties:
   - name: DragDetector.TrackballRollFactor
     summary: |
       If `Class.DragDetector.DragStyle|DragStyle` is
-      `Enum.DragDetectorDragStyle|RotateTrackball`, multipler for adding roll
+      `Enum.DragDetectorDragStyle|RotateTrackball`, multiplier for adding roll
       rotation to the total.
     description: |
       When the cursor is outside the trackball, the `Class.DragDetector` can
@@ -678,6 +693,22 @@ methods:
           and it returns a `Datatype.CFrame` containing the desired location and
           orientation of the pivot in world space. If the function returns
           `nil`, the object will not be moved.
+    returns:
+      - type: void
+        summary: ''
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+  - name: DragDetector:SetPermissionPolicyFunction
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: function
+        type: Function
+        default:
+        summary: ''
     returns:
       - type: void
         summary: ''

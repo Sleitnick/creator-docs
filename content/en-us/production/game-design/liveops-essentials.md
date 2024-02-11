@@ -1,13 +1,13 @@
 ---
 title: LiveOps Essentials
-description: LiveOps Essentials
+description: LiveOps Essentials is an overview of what live ops are and how to think about designing them effectively.
 ---
 
 <iframe width="880" height="495" src="https://www.youtube-nocookie.com/embed/kNE757v3Bwg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <br />
 
-_Live operations_ (LiveOps) is the post-launch support of an experience to maintain player engagement. LiveOps consist of:
+**Live operations** (LiveOps) is the post-launch support of an experience to maintain player engagement. LiveOps consist of:
 
 - A content cadence
 - Major updates
@@ -18,7 +18,7 @@ Without LiveOps updates, even dedicated players lose interest. After completing 
 
 ## Content Cadence
 
-_Content cadence_, the regular release of new content in a live game, varies based on developers' capabilities, ranging from weekly to monthly releases. These frequent introductions of fresh content aim to keep players engaged between major updates.
+**Content cadence**, the regular release of new content in a live game, varies based on developers' capabilities, ranging from weekly to monthly releases. These frequent introductions of fresh content aim to keep players engaged between major updates.
 
 <figure>
     <img src="../../assets/game-design/live-ops/live-ops-1.png" width="70%"/>
@@ -118,7 +118,7 @@ LiveOps updates are also the developers' opportunity to augment and improve thei
 
 The core loop is a game's minute-to-minute gameplay. Any features added during LiveOps should be connected to the core loop, so all of the game's systems remain integrated and supportive of one another.
 
-Analytics provide valuable insights into player behavior and game health, and may indicate areas of improvement that can be targeted by an update. The creator dashboard provides analytics data and suggestions based on a game's performance. Additonally, developers should consider their own LiveOps preferences and priorities:
+Analytics provide valuable insights into player behavior and game health, and may indicate areas of improvement that can be targeted by an update. The creator dashboard provides analytics data and suggestions based on a game's performance. Additionally, developers should consider their own LiveOps preferences and priorities:
 
 - What is their vision for the game?
 - What new features and content inspire them?

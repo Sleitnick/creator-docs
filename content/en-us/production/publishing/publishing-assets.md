@@ -1,9 +1,9 @@
 ---
 title: Publishing Assets
-description: Explains how to publish assets to the Creator Marketplace.
+description: Explains how to publish assets to the Creator Store.
 ---
 
-**Publishing assets** to the [Creator Marketplace](../../production/publishing/creator-marketplace.md) is the only way to make your assets publicly available to all users to use within their own experiences in Studio. You can publish any mesh or image that you have imported through the [Asset Manager](../../projects/assets/manager.md), or any [model](../../parts/models.md) or [plugin](../../studio/plugins.md) that you have uploaded to your inventory.
+**Publishing assets** to the [Creator Store](../../production/publishing/creator-store.md) is the only way to make your assets publicly available to all users to use within their own experiences in Studio. You can publish any mesh or image that you have imported through the [Asset Manager](../../projects/assets/manager.md), or any [model](../../parts/models.md) or [plugin](../../studio/plugins.md) that you have uploaded to your inventory.
 
 There are limits on the number of assets you can publish per 30 days, depending on whether you've [verified your account](../../production/publishing/account-verification.md):
 
@@ -45,7 +45,7 @@ You can publish assets directly in Studio through the [Toolbox](../../projects/a
 
 1. Navigate to the **View** tab of the menu bar and select **Toolbox**. The **Toolbox** window displays.
 
-   <img src="../../assets/studio/general/View-Tab-Toolbox.png" width="760" alt="Toolbox toggle button in Studio" />
+   <img src="../../assets/studio/general/View-Tab-Toolbox.png" width="776" alt="Toolbox toggle button in Studio" />
 
 1. Click on the **Inventory** tab.
 
@@ -57,15 +57,11 @@ You can publish assets directly in Studio through the [Toolbox](../../projects/a
 
 1. Right-click on your desired asset to publish and select **Edit Asset**. The **Asset Configuration** dialog displays.
 1. **(Optional)** If you are [ID or phone verified](../../production/publishing/account-verification.md), click the **+** button to add up to 5 supplementary thumbnails for your asset.
-
-   <img src="../../assets/publishing/publishing-assets/Rich-Media.jpg" width="90%" />
-
 1. Enable the **Distribute on Marketplace** toggle.
 1. **(Optional)** If you are [ID or phone verified](../../production/publishing/account-verification.md) and are publishing a plugin, input the amount of Robux you want to charge for the plugin in the **Price** field. If you keep the default value of **0**, the plugin is free to all creators.
-
 1. Click the **Submit** button.
 
-The asset is now public and visible to everyone within the [Creator Marketplace](../../production/publishing/creator-marketplace.md).
+The asset is now public and visible to everyone within the [Creator Store](../../production/publishing/creator-store.md).
 
 ## Through Creator Dashboard
 
@@ -78,4 +74,4 @@ Publishing assets through the [Creator Dashboard](https://create.roblox.com/dash
 1. **(Optional)** If you are [ID or phone verified](../../production/publishing/account-verification.md) and are publishing a plugin, input the amount of Robux you want to charge for the plugin in the **Price** field. If you keep the default value of **0**, the plugin is free to all creators.
 1. Click the **Save** button.
 
-The asset is now public and visible to everyone within the [Creator Marketplace](../../production/publishing/creator-marketplace.md).
+The asset is now public and visible to everyone within the [Creator Store](../../production/publishing/creator-store.md).

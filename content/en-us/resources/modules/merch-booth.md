@@ -5,11 +5,10 @@ description: The Merch Booth module lets you sell avatar assets, passes, and pro
 
 The **MerchBooth** [developer module](../../resources/modules/index.md) lets you offer [avatar assets](../../art/accessories/index.md), [passes](../../production/monetization/game-passes.md), and [developer products](../../production/monetization/developer-products.md) for sale directly within your experience. Players can browse items, preview assets on their own avatar, purchase items, and instantly use or equip them&nbsp;— all without leaving your experience. This can help you [monetize](../../production/monetization/index.md) your experience and gain revenue through the 40% affiliate fee associated with selling other creators' items.
 
-<video src="../../assets/developer-modules/merch-booth/Showcase.mp4" controls
-width="100%" />
+<video src="../../assets/developer-modules/merch-booth/Showcase.mp4" controls width="100%"></video>
 
 <Alert severity="warning">
-To offer assets created by third parties in the merch booth, make sure <b>Allow Third Party Sales</b> is enabled from the <b>Security</b> section of the [Game Settings](../../studio/game-settings.md) window. If this setting is disabled, you will not be able to sell UGC assets created by other users.
+To offer assets created by third parties in the merch booth, make sure **Allow Third Party Sales** is enabled from the **Security** section of the [Game Settings](../../studio/game-settings.md) window. If this setting is disabled, you will not be able to sell UGC assets created by other users.
 </Alert>
 
 ## Module Usage
@@ -18,25 +17,25 @@ To offer assets created by third parties in the merch booth, make sure <b>Allow 
 
 To use the **MerchBooth** module in an experience:
 
-1. From the **View** tab, open the [Toolbox](../../projects/assets/toolbox.md) and select the **Marketplace** tab.
+1. From the [View](../../studio/view-tab.md) tab, open the [Toolbox](../../projects/assets/toolbox.md) and select the **Creator Store** tab.
 
-   <img src="../../assets/studio/general/View-Tab-Toolbox.png" width="760" alt="Toolbox toggle button in Studio" />
+   <img src="../../assets/studio/general/View-Tab-Toolbox.png" width="776" alt="Toolbox toggle button in Studio" />
 
-   <img src="../../assets/studio/toolbox/Marketplace-Tab.png" width="360" />
+   <img src="../../assets/studio/toolbox/Creator-Store-Tab.png" width="360" />
 
 1. Make sure the **Models** sorting is selected, then click the **See&nbsp;All** button for **Categories**.
 
-   <img src="../../assets/studio/toolbox/Marketplace-Categories-See-All.png" width="360" />
+   <img src="../../assets/studio/toolbox/Creator-Store-Categories-See-All.png" width="360" />
 
-1. Locate and click the **DEV MODULES** tile.
+1. Locate and click the **Dev Modules** tile.
 
-   <img src="../../assets/studio/toolbox/Marketplace-Categories-Dev-Modules.png" width="200" />
+   <img src="../../assets/studio/toolbox/Creator-Store-Categories-Dev-Modules.png" width="200" />
 
 1. Locate the **Merch Booth** module and click it, or drag-and-drop it into the 3D view.
 
    <img src="../../assets/developer-modules/merch-booth/Toolbox-Icon.png" width="143" />
 
-1. In the **Explorer** window, move the entire **MerchBooth** model into **ServerScriptService**. Upon running the experience, the module will distribute itself to various services and begin running.
+1. In the [Explorer](../../studio/explorer.md) window, move the entire **MerchBooth** model into **ServerScriptService**. Upon running the experience, the module will distribute itself to various services and begin running.
 
    <img src="../../assets/developer-modules/merch-booth/Move-Package.png" width="320" />
 
@@ -154,10 +153,13 @@ Adding [passes](../../production/monetization/game-passes.md) requires pass IDs 
    ```
 
 1. Navigate to the [Creator Dashboard](https://create.roblox.com/dashboard/creations) and select the experience.
-1. In the left column, click **Associated Items**, then select **PASSES**.
-1. Right-click a pass and select **Copy Asset ID**.
+1. In the left column, under **Monetization**, select **Passes**.
 
-   <img src="../../assets/developer-modules/merch-booth/Pass-Copy-Asset-ID.png" width="560" />
+   <img src="../../assets/creator-dashboard/Experience-Nav-Monetization-Passes.png" width="330" />
+
+1. Click the **&ctdot;** button for a pass and select **Copy Asset ID**.
+
+   <img src="../../assets/creator-dashboard/Pass-Copy-Asset-ID.png" width="400" />
 
 1. Paste each copied ID into a comma-delimited list within the `items` table **and** include `Enum.InfoType.GamePass` as the second parameter for [addItemAsync](#additemasync) to indicate that the items are passes. By default, items will appear in the catalog view in alphabetical order, but sorting can be customized via [setCatalogSort](#setcatalogsort).
 
@@ -207,10 +209,13 @@ Adding [developer products](../../production/monetization/developer-products.md)
    ```
 
 1. Navigate to the [Creator Dashboard](https://create.roblox.com/dashboard/creations) and select the experience.
-1. In the left column, click **Associated Items**, then select **DEVELOPER PRODUCTS**.
-1. Right-click a product and select **Copy Asset ID**.
+1. In the left column, under **Monetization**, select **Developer Products**.
 
-   <img src="../../assets/developer-modules/merch-booth/Developer-Product-Copy-Asset-ID.png" width="560" />
+   <img src="../../assets/creator-dashboard/Experience-Nav-Monetization-Developer-Products.png" width="330" />
+
+1. Click the **&ctdot;** button for a product and select **Copy Asset ID**.
+
+   <img src="../../assets/creator-dashboard/Developer-Product-Copy-Asset-ID.png" width="400" />
 
 1. Paste each copied ID into a comma-delimited list within the `items` table **and** include `Enum.InfoType.Product` as the second parameter for [addItemAsync](#additemasync) to indicate that the items are developer products. By default, items appear in the catalog view in alphabetical order, but you can customize sorting using [setCatalogSort](#setcatalogsort).
 
@@ -236,9 +241,9 @@ Adding [developer products](../../production/monetization/developer-products.md)
 
 ### Custom Catalog Button
 
-By default, a right-side **catalog button** lets users open the booth at any time.
+By default, a right-side **catalog button** lets players open the booth at any time.
 
-<img src="../../assets/developer-modules/merch-booth/UI-Catalog-Button.jpg" width="80%" />
+<img src="../../assets/developer-modules/merch-booth/UI-Catalog-Button.jpg" width="800" />
 
 In some cases, it may be useful to [remove](#togglecatalogbutton) this button and connect your own:
 
@@ -265,21 +270,20 @@ In some cases, it may be useful to [remove](#togglecatalogbutton) this button an
 
 ### Shoppable Regions
 
-A helpful way to drive purchases in your experience is to automatically show the merch booth when a user enters an area.
+A helpful way to drive purchases in your experience is to automatically show the merch booth when a player enters an area.
 
-<video src="../../assets/developer-modules/merch-booth/Shoppable-Regions.mp4" controls
-width="100%" />
+<video src="../../assets/developer-modules/merch-booth/Shoppable-Regions.mp4" controls width="800"></video>
 
 To create a shoppable region:
 
-1. Create an `Class.BasePart.Anchored|Anchored` block that encompasses the detection region.
+1. Create an `Class.BasePart.Anchored|Anchored` block that encompasses the detection region. Make sure the block is tall enough to collide with the `Class.Model.PrimaryPart|PrimaryPart` of character models (**HumanoidRootPart** by default).
 
    <img src="../../assets/developer-modules/merch-booth/Shoppable-Region-Part.jpg" width="80%" />
    <figcaption>Block to detect when players approach the front of the shop counter</figcaption>
 
-1. Using the **Tag&nbsp;Editor**, accessible from the [View](../../studio/view-tab.md) tab, apply the tag `ShopRegion` to the block so that `Class.CollectionService` detects it.
+1. Using the [Tags](../../studio/properties.md#instance-tags) section of the block's properties, or Studio's [Tag&nbsp;Editor](../../studio/view-tab.md#windows-and-tools), apply the tag `ShopRegion` to the block so that `Class.CollectionService` detects it.
 
-1. Set the part's `Class.BasePart.Transparency|Transparency` to the maximum to hide it from users in the experience. Also disable its `Class.BasePart.CanCollide|CanCollide` and `Class.BasePart.CanQuery|CanQuery` properties so that objects do not physically collide with it and raycasts do not detect it.
+1. Set the part's `Class.BasePart.Transparency|Transparency` to the maximum to hide it from players in the experience. Also disable its `Class.BasePart.CanCollide|CanCollide` and `Class.BasePart.CanQuery|CanQuery` properties so that objects do not physically collide with it and raycasts do not detect it.
 
    <Grid container spacing={3}>
    <Grid item>
@@ -294,42 +298,47 @@ To create a shoppable region:
 
    <img src="../../assets/developer-modules/merch-booth/LocalScript-In-StarterPlayerScripts.png" width="320" />
 
-1. In the new script, paste the following code which uses the `Class.BasePart.Touched|Touched` and `Class.BasePart.TouchEnded|TouchEnded` events to detect when users enter/leave the region and calls [openMerchBooth](#openmerchbooth) and [closeMerchBooth](#closemerchbooth) to open/close the booth GUI.
+1. In the new script, paste the following code which uses the `Class.BasePart.Touched|Touched` and `Class.BasePart.TouchEnded|TouchEnded` events to detect when characters enter/leave the region and calls [openMerchBooth](#openmerchbooth) and [closeMerchBooth](#closemerchbooth) to open/close the booth GUI.
 
-   ```lua title='LocalScript' highlight='15, 22'
-   local Players = game:GetService("Players")
-   local ReplicatedStorage = game:GetService("ReplicatedStorage")
-   local CollectionService = game:GetService("CollectionService")
+	```lua title='LocalScript' highlight='14, 21'
+	local Players = game:GetService("Players")
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local CollectionService = game:GetService("CollectionService")
 
-   local MerchBooth = require(ReplicatedStorage:WaitForChild("MerchBooth"))
+	local MerchBooth = require(ReplicatedStorage:WaitForChild("MerchBooth"))
 
-   -- Remove the default catalog button
-   MerchBooth.toggleCatalogButton(false)
+	-- Remove the default catalog button
+	MerchBooth.toggleCatalogButton(false)
 
-   -- Iterate through all tagged parts
-   for _, region in CollectionService:GetTagged("ShopRegion") do
-   	region.Touched:Connect(function(otherPart)
-   		local character = Players.LocalPlayer.Character
-   		if character and character:FindFirstChild("HumanoidRootPart") == otherPart then
-   			MerchBooth.openMerchBooth()
-   		end
-   	end)
+	local function setupRegion(region: BasePart)
+		region.Touched:Connect(function(otherPart)
+			local character = Players.LocalPlayer.Character
+			if character and otherPart == character.PrimaryPart then
+				MerchBooth.openMerchBooth()
+			end
+		end)
 
-   	region.TouchEnded:Connect(function(otherPart)
-   		local character = Players.LocalPlayer.Character
-   		if character and character:FindFirstChild("HumanoidRootPart") == otherPart then
-   			MerchBooth.closeMerchBooth()
-   		end
-   	end)
-   end
-   ```
+		region.TouchEnded:Connect(function(otherPart)
+			local character = Players.LocalPlayer.Character
+			if character and otherPart == character.PrimaryPart then
+				MerchBooth.closeMerchBooth()
+			end
+		end)
+	end
+
+	-- Iterate through existing tagged shop regions
+	for _, region in CollectionService:GetTagged("ShopRegion") do
+		setupRegion(region)
+	end
+	-- Detect when non-streamed shop regions stream in
+	CollectionService:GetInstanceAddedSignal("ShopRegion"):Connect(setupRegion)
+	```
 
 ### Proximity Prompts
 
-As an alternative to the 2D catalog view, you can add **proximity prompts** over in-experience objects. This encourages users to discover items in the 3D environment, preview them on their own avatar, purchase them, and instantly equip them. See [addProximityButton](#addproximitybutton) for details.
+As an alternative to the 2D catalog view, you can add **proximity prompts** over in-experience objects. This encourages players to discover items in the 3D environment, preview them on their own avatar, purchase them, and instantly equip them. See [addProximityButton](#addproximitybutton) for details.
 
-<video src="../../assets/developer-modules/merch-booth/Proximity-Prompts.mp4" controls
-width="100%" />
+<video src="../../assets/developer-modules/merch-booth/Proximity-Prompts.mp4" controls width="800"></video>
 
 <Alert severity="info">
 If a player has opened an item view through a proximity prompt, it automatically closes when the player moves further away from the prompt object than its activation distance. If you want to keep the booth open regardless of the player's distance from the prompt, set `closeWhenFarFromPrompt` to `false` in a [configure](#configure) call.
@@ -337,7 +346,7 @@ If a player has opened an item view through a proximity prompt, it automatically
 
 ### Changing the Equip Effect
 
-By default, the merch booth shows a generic sparkle effect when a user equips an item from it. To change the effect, set `particleEmitterTemplate` to your own instance of a `Class.ParticleEmitter` in a [configure](#configure) call.
+By default, the merch booth shows a generic sparkle effect when a player equips an item from it. To change the effect, set `particleEmitterTemplate` to your own instance of a `Class.ParticleEmitter` in a [configure](#configure) call.
 
 ```lua title='LocalScript - ConfigureMerchBooth' highlight='5-10, 13'
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -429,7 +438,7 @@ Items in the merch booth are represented by a dictionary with the following key-
 	<tr>
 		<td>`isOwned`</td>
 		<td>bool</td>
-		<td>Whether the current user owns the item.</td>
+		<td>Whether the current player owns the item.</td>
 	</tr>
 	<tr>
 		<td>`creatorName`</td>
@@ -496,12 +505,15 @@ MerchBooth.setControlKeyCodes(MerchBooth.Controls.ProximityPrompts, {
 
 #### configure
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>configure(config:</InlineCode>`Library.table`<InlineCode>)</InlineCode></Typography>
+<figcaption>
+configure(config: `Library.table`)
+</figcaption>
 
 Overrides default client-side configuration options through the following keys/values in the `config` table. This function can only be called from a `Class.LocalScript`.
 
 <Tabs>
 <TabItem label="Appearance">
+
 <table>
 <thead>
 	<tr>
@@ -603,8 +615,10 @@ Overrides default client-side configuration options through the following keys/v
 	</tr>
 </tbody>
 </table>
+
 </TabItem>
 <TabItem label="Proximity Prompts">
+
 <table>
 <thead>
 	<tr>
@@ -636,8 +650,10 @@ Overrides default client-side configuration options through the following keys/v
 	</tr>
 </tbody>
 </table>
+
 </TabItem>
 <TabItem label="Behavior">
+
 <table>
 <thead>
 	<tr>
@@ -669,6 +685,7 @@ Overrides default client-side configuration options through the following keys/v
 	</tr>
 </tbody>
 </table>
+
 </TabItem>
 </Tabs>
 
@@ -688,7 +705,9 @@ MerchBooth.configure({
 
 #### addItemAsync
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>addItemAsync(assetId:</InlineCode>`number`<InlineCode>, productType:</InlineCode>`Enum.InfoType`<InlineCode>, hideFromCatalog:</InlineCode>`boolean`<InlineCode>)</InlineCode></Typography>
+<figcaption>
+addItemAsync(assetId: `number`, productType: `Enum.InfoType`, hideFromCatalog: `boolean`)
+</figcaption>
 
 Asynchronously adds an item to the merch booth so that it's eligible for purchase in the experience. `assetId` is the item's asset ID, `productType` is the item's `Enum.InfoType` enum, and `hideFromCatalog` can be used to hide the item in the catalog view.
 
@@ -763,7 +782,9 @@ end
 
 #### getItems
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>getItems():</InlineCode>`Library.table`</Typography>
+<figcaption>
+getItems(): `Library.table`
+</figcaption>
 
 Returns a dictionary representing all of the currently registered items. Each key is an item's asset ID as a string, and each key's value is an [Item](#item). This function can only be called from a `Class.Script`.
 
@@ -783,7 +804,9 @@ end
 
 #### removeItem
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>removeItem(assetId:</InlineCode>`number`<InlineCode>)</InlineCode></Typography>
+<figcaption>
+removeItem(assetId: `number`)
+</figcaption>
 
 Unregisters an item previously added with [addItemAsync](#additemasync), removing its tile in the catalog view and any [proximity prompts](#proximity-prompts) assigned to it. This function can only be called from a `Class.Script`.
 
@@ -804,9 +827,11 @@ end
 
 #### addProximityButton
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}>`addProximityButton(adornee:` `Class.BasePart`|`Class.Model`|`Class.Attachment|Attachment,` `assetId:`[`number`](../../luau/numbers.md)`)`</Typography>
+<figcaption>
+addProximityButton(adornee: `Class.BasePart`|`Class.Model`|`Class.Attachment|Attachment`, assetId: `number`)
+</figcaption>
 
-Adds a [proximity prompt](#proximity-prompts) over the given `adornee` that will trigger the display of an item's purchase view, given its asset ID. This can be used as an alternative to the 2D catalog view, encouraging users to discover items in the 3D environment.
+Adds a [proximity prompt](#proximity-prompts) over the given `adornee` that will trigger the display of an item's purchase view, given its asset ID. This can be used as an alternative to the 2D catalog view, encouraging players to discover items in the 3D environment.
 
 Note that an item must be added via [addItemAsync](#additemasync) before a proximity button can be assigned to it. See also [removeProximityButton](#removeproximitybutton) to remove the proximity prompt from an object.
 
@@ -832,7 +857,9 @@ end
 
 #### removeProximityButton
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}>`removeProximityButton(adornee:` `Class.BasePart`|`Class.Model`|`Class.Attachment|Attachment)`</Typography>
+<figcaption>
+removeProximityButton(adornee: `Class.BasePart`|`Class.Model`|`Class.Attachment|Attachment`)
+</figcaption>
 
 Removes a [proximity prompt](#proximity-prompts) generated through [addProximityButton](#addproximitybutton). This function can only be called from a `Class.Script`.
 
@@ -858,7 +885,9 @@ end
 
 #### setCatalogSort
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>setCatalogSort(sortFunction:</InlineCode>`function`<InlineCode>):</InlineCode>`boolean`</Typography>
+<figcaption>
+setCatalogSort(sortFunction: `function`): `boolean`
+</figcaption>
 
 Sets the sorting function `sortFunction` to be used in the catalog view. The provided sorting function can use logic based on [Item](#item) info such as `price` or `title`. This function can only be called from a `Class.LocalScript`.
 
@@ -896,7 +925,9 @@ end)
 
 #### setControlKeyCodes
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>setControlKeyCodes(control:</InlineCode><a href="#merchboothcontrols">`MerchBooth.Controls`</a><InlineCode>, keyCodes:</InlineCode>`Library.table`<InlineCode>)</InlineCode></Typography>
+<figcaption>
+setControlKeyCodes(control: [MerchBooth.Controls](#merchboothcontrols), keyCodes: `Library.table`)
+</figcaption>
 
 Configures the key and button values for interactions with the merch booth. The first parameter must be a [MerchBooth.Controls](#merchboothcontrols) enum and the second parameter a table containing the keys `keyboard` and/or `gamepad` with corresponding `Enum.KeyCode` enums.
 
@@ -944,7 +975,9 @@ MerchBooth.setControlKeyCodes(MerchBooth.Controls.ProximityPrompts, {
 
 #### openMerchBooth
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>openMerchBooth():</InlineCode></Typography>
+<figcaption>
+openMerchBooth()
+</figcaption>
 
 Opens the merch booth window (if closed) and navigates to the catalog view. This function can only be called from a `Class.LocalScript`.
 
@@ -965,7 +998,9 @@ MerchBooth.openMerchBooth()
 
 #### openItemView
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>openItemView(itemId:</InlineCode>`number`<InlineCode>)</InlineCode></Typography>
+<figcaption>
+openItemView(itemId: `number`)
+</figcaption>
 
 Navigates to the single item view of the given `itemId`, opening the merch booth window if it is currently closed. This function can only be called from a `Class.LocalScript`.
 
@@ -984,7 +1019,9 @@ end
 
 #### toggleCatalogButton
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>toggleCatalogButton(enabled:</InlineCode>`boolean`<InlineCode>)</InlineCode></Typography>
+<figcaption>
+toggleCatalogButton(enabled: `boolean`)
+</figcaption>
 
 Toggles on/off the catalog button on the right side of the screen. This is useful when implementing a [custom button](#custom-catalog-button) or limiting the merch booth's appearance to [regions](#shoppable-regions) or [proximity prompts](#proximity-prompts). Can only be called from a `Class.LocalScript`.
 
@@ -998,7 +1035,9 @@ MerchBooth.toggleCatalogButton(false)
 
 #### isMerchBoothOpen
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>isMerchBoothOpen():</InlineCode>`Tuple`</Typography>
+<figcaption>
+isMerchBoothOpen(): `Tuple`
+</figcaption>
 
 Returns `true` if either the catalog or the item view is open. If the item view is open, the item's asset ID is returned as the second value. This function can only be called from a `Class.LocalScript`.
 
@@ -1020,7 +1059,9 @@ end
 
 #### closeMerchBooth
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>closeMerchBooth():</InlineCode></Typography>
+<figcaption>
+closeMerchBooth()
+</figcaption>
 
 Closes the merch booth window. This function can only be called from a `Class.LocalScript`.
 
@@ -1034,13 +1075,17 @@ MerchBooth.closeMerchBooth()
 
 #### isMerchBoothEnabled
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>isMerchBoothEnabled():</InlineCode>`boolean`</Typography>
+<figcaption>
+isMerchBoothEnabled(): `boolean`
+</figcaption>
 
 This function may be used in tandem with [setEnabled](#setenabled) to check whether the merch booth is currently enabled or not. Can only be called from a `Class.LocalScript`.
 
 #### setEnabled
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>setEnabled(enabled:</InlineCode>`boolean`<InlineCode>)</InlineCode></Typography>
+<figcaption>
+setEnabled(enabled: `boolean`)
+</figcaption>
 
 Sets whether the entire merch booth is enabled or not. When disabled, this function removes the entire UI, including [proximity prompts](#proximity-prompts), and disconnects all [events](#events). This function can only be called from a `Class.LocalScript`.
 
@@ -1059,14 +1104,12 @@ end
 
 #### itemAdded
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>itemAdded(assetId:</InlineCode>`number`<InlineCode>, itemInfo:</InlineCode>`Library.table`<InlineCode>):</InlineCode>`Datatype.RBXScriptSignal`</Typography>
-
 Fires when an item is added through [addItemAsync](#additemasync). This event can only be connected in a `Class.Script`.
 
-<table>
+<table size="small">
 <thead>
 	<tr>
-		<th colspan='2'>**Parameters**</th>
+		<th colspan='2'>Parameters</th>
 	</tr>
 </thead>
 <tbody>
@@ -1094,14 +1137,12 @@ end)
 
 #### itemRemoved
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>itemRemoved(assetId:</InlineCode>`number`<InlineCode>):</InlineCode>`Datatype.RBXScriptSignal`</Typography>
-
 Fires when an item is removed through [removeItem](#removeitem). This event can only be connected in a `Class.Script`.
 
-<table>
+<table size="small">
 <thead>
 	<tr>
-		<th colspan='2'>**Parameters**</th>
+		<th colspan='2'>Parameters</th>
 	</tr>
 </thead>
 <tbody>
@@ -1124,8 +1165,6 @@ end)
 
 #### merchBoothOpened
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>merchBoothOpened():</InlineCode>`Datatype.RBXScriptSignal`</Typography>
-
 Fires when either the catalog **or** item detail view are opened.
 
 ```lua title='LocalScript' highlight='5-7'
@@ -1139,8 +1178,6 @@ end)
 ```
 
 #### merchBoothClosed
-
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>merchBoothClosed():</InlineCode>`Datatype.RBXScriptSignal`</Typography>
 
 Fires when either the catalog **or** item detail view are closed.
 
@@ -1156,8 +1193,6 @@ end)
 
 #### catalogViewOpened
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>catalogViewOpened():</InlineCode>`Datatype.RBXScriptSignal`</Typography>
-
 Fires when the catalog view is opened.
 
 ```lua title='LocalScript' highlight='5-7'
@@ -1171,8 +1206,6 @@ end)
 ```
 
 #### catalogViewClosed
-
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>catalogViewClosed():</InlineCode>`Datatype.RBXScriptSignal`</Typography>
 
 Fires when the catalog view is closed.
 
@@ -1188,8 +1221,6 @@ end)
 
 #### itemViewOpened
 
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>itemViewOpened():</InlineCode>`Datatype.RBXScriptSignal`</Typography>
-
 Fires when the item detail view is opened.
 
 ```lua title='LocalScript' highlight='5-7'
@@ -1203,8 +1234,6 @@ end)
 ```
 
 #### itemViewClosed
-
-<Typography sx={{bgcolor:'media.inlineCodeBackground',borderRadius:1}}><InlineCode>itemViewClosed():</InlineCode>`Datatype.RBXScriptSignal`</Typography>
 
 Fires when the item detail view is closed.
 

@@ -11,7 +11,7 @@ To get all items of an Enum, call the `GetEnumItems()` method on the enum. The f
 
 ```lua
 local partTypes = Enum.PartType:GetEnumItems()
-for index, enumItem in ipairs(partTypes) do
+for index, enumItem in partTypes do
 	print(enumItem)
 end
 
@@ -26,7 +26,7 @@ end
 
 The `Datatype.EnumItem` is the data type for items in enums. An `Datatype.EnumItem` has three properties:
 
-- `Name` - The name of the `EnumIem`.
+- `Name` - The name of the `Datatype.EnumItem`.
 - `Value` - The numerical index of the `Datatype.EnumItem`.
 - `EnumType` - The parent `Datatype.Enum` of the `Datatype.EnumItem`.
 

@@ -85,13 +85,15 @@ methods:
         type: Vector3
         default:
         summary: |
-          The size of the cast block shape.
+          The size of the cast block shape in studs. The maximum size is 512
+          studs.
       - name: direction
         type: Vector3
         default:
         summary: |
           Direction of the shapecast, with the magnitude representing the
-          maximum distance the shape can travel.
+          maximum distance the shape can travel. The maximum distance is 1024
+          studs.
       - name: params
         type: RaycastParams
         default: RaycastParams{IgnoreWater=false, BruteForceAllSlow=false, RespectCanCollide=false, CollisionGroup=Default, FilterDescendantsInstances={}}
@@ -107,25 +109,28 @@ methods:
     thread_safety: Safe
   - name: WorldRoot:BulkMoveTo
     summary: |
-      Moves a table of `Class.Part|parts` to `Datatype.CFrame|CFrames` in a
-      table of CFrames, without firing property changed events.
+      Moves a table of `Class.BasePart|BaseParts` to a table of
+      `Datatype.CFrame|CFrames`.
     description: |
-      **Warning:** You should only use this function if you are sure that part
-      movement is a bottleneck in your code, simply setting the CFrame property
-      of the individual parts / welded models you want to move will be fast
-      enough in the vast majority of cases.
+      This function moves a table of `Class.BasePart|BaseParts` to a table of
+      `Datatype.CFrame|CFrames` without necessarily firing the default property
+      `Class.Instance.Changed|Changed` events. This provides a very fast way to
+      move large numbers of parts, as you don't have to pay the cost of separate
+      property sets for each individual part.
 
-      This function moves a table of parts to the location specified in a table
-      of `Datatype.CFrame|CFrames`. This makes it a very fast way to move large
-      numbers of parts, as you don't have to pay the cost of separate property
-      sets for each individual part.
+      The third argument allows you to further optimize the movement operation.
+      By default, the `Class.Instance.Changed|Changed` event of each part fires
+      for `Class.BasePart.Position|Position`,
+      `Class.BasePart.Orientation|Orientation`, and
+      `Class.BasePart.CFrame|CFrame`. However, if you specify
+      `Enum.BulkMoveMode|FireCFrameChanged` as the third argument, only the
+      `Class.Instance.Changed|Changed` event for the
+      `Class.BasePart.CFrame|CFrame` property will fire.
 
-      The third argument of BulkMoveTo allows you to further speed up movement
-      of the parts by specifying the `Class.BasePart.Position|Position` and
-      `Class.BasePart.Orientation|Orientation`. Changed events should not be
-      fired on the parts. If you specify FireCFrameChanged as the BulkMoveMode
-      then only CFrame.Changed be fire, rather than changed firing for Position,
-      Orientation, and CFrame like it normally does.
+      Note that you should only use this function if you're sure that part
+      movement is a bottleneck in your code. Simply setting the
+      `Class.BasePart.CFrame|CFrame` property of individual parts and welded
+      models is fast enough in the majority of cases.
     code_samples:
     parameters:
       - name: partList
@@ -304,21 +309,23 @@ methods:
     thread_safety: Unsafe
   - name: WorldRoot:FindPartsInRegion3
     summary: |
-      Returns an array of `Class.BasePart`s in the given `Datatype.Region3`.
+      Returns an array of `Class.BasePart|BaseParts` in the given
+      `Datatype.Region3`.
     description: |
-      Returns an array of `Class.BasePart`s in the given `Datatype.Region3`.
+      Returns an array of `Class.BasePart|BaseParts` in the given
+      `Datatype.Region3`.
 
       This function takes an optional maxParts parameter (default 20) which
-      limits the number of `Class.BasePart`s that can be returned. Once this
-      number has been reached, the search for `Class.BasePart`s will stop. This
-      means some `Class.BasePart`s may not be returned even if they are within
-      the `Datatype.Region3`
+      limits the number of `Class.BasePart|BaseParts` that can be returned. Once
+      this number has been reached, the search for `Class.BasePart|BaseParts`
+      will stop. This means some `Class.BasePart|BaseParts` may not be returned
+      even if they are within the `Datatype.Region3`
 
       The optional ignoreDescendentsInstance parameter can be used to specify a
       specific instance for whom itself and all of its descendants should be
       ignored by this function. This can be useful when, for example, looking to
-      see if any `Class.BasePart`s are inside a `Class.BasePart` other than the
-      `Class.BasePart` itself.
+      see if any `Class.BasePart|BaseParts` are inside a `Class.BasePart` other
+      than the `Class.BasePart` itself.
 
       ```
       local min = part.Position - (0.5 * part.Size)
@@ -331,7 +338,8 @@ methods:
       `Class.WorldRoot:FindPartsInRegion3WithWhiteList()` variants of this
       method exist to provide specific exclusion and inclusion functionality.
 
-      If no `Class.BasePart`s are found, an empty array will be returned.
+      If no `Class.BasePart|BaseParts` are found, an empty array will be
+      returned.
     code_samples:
     parameters:
       - name: region
@@ -348,11 +356,11 @@ methods:
         type: int
         default: 20
         summary: |
-          The maximum amount of `Class.BasePart`s to be returned.
+          The maximum amount of `Class.BasePart|BaseParts` to be returned.
     returns:
       - type: Objects
         summary: |
-          An array of `Class.BasePart`s within the `Datatype.Region3`.
+          An array of `Class.BasePart|BaseParts` within the `Datatype.Region3`.
     tags:
       - Deprecated
     deprecation_message: |
@@ -397,11 +405,12 @@ methods:
         type: int
         default: 20
         summary: |
-          The maximum number of `Class.BasePart`s to be returned.
+          The maximum number of `Class.BasePart|BaseParts` to be returned.
     returns:
       - type: Objects
         summary: |
-          An array of `Class.BasePart`s found within the `Datatype.Region3`.
+          An array of `Class.BasePart|BaseParts` found within the
+          `Datatype.Region3`.
     tags:
       - Deprecated
     deprecation_message: |
@@ -446,11 +455,11 @@ methods:
         type: int
         default: 20
         summary: |
-          The maximum number of `Class.BasePart`s to be returned.
+          The maximum number of `Class.BasePart|BaseParts` to be returned.
     returns:
       - type: Objects
         summary: |
-          An array of `Class.BasePart`s within the `Datatype.Region3`.
+          An array of `Class.BasePart|BaseParts` within the `Datatype.Region3`.
     tags:
       - Deprecated
     deprecation_message: |
@@ -617,9 +626,9 @@ methods:
       physics of a running game.
 
       **Translate stiffness** is a number between 0 and 1 specifying how
-      agressively to match the part's position to the position part of the
+      aggressively to match the part's position to the position part of the
       target CFrame. **Rotate stiffness** is a number between 0 and 1 specifying
-      how agresively to match the part's rotation to to the rotation part of the
+      how aggressively to match the part's rotation to the rotation part of the
       target CFrame.
 
       For example:
@@ -655,9 +664,8 @@ methods:
         type: float
         default: 0.5
         summary: |
-          A number between 0 and 1 specifying how aggresively to match the
-          part's rotation to to the rotation part of the target
-          `Datatype.CFrame`.
+          A number between 0 and 1 specifying how aggressively to match the
+          part's rotation to the rotation part of the target `Datatype.CFrame`.
       - name: collisionsMode
         type: IKCollisionsMode
         default: OtherMechanismsAnchored
@@ -673,17 +681,17 @@ methods:
     thread_safety: Unsafe
   - name: WorldRoot:IsRegion3Empty
     summary: |
-      Returns a bool indicating whether there are no `Class.BasePart`s within
-      the given `Datatype.Region3`.
+      Returns a bool indicating whether there are no `Class.BasePart|BaseParts`
+      within the given `Datatype.Region3`.
     description: |
       **IsRegion3Empty** returns a bool indicating whether there are no
-      `Class.BasePart`s within the given `Datatype.Region3`.
+      `Class.BasePart|BaseParts` within the given `Datatype.Region3`.
 
       The optional ignoreDescendentsInstance parameter can be used to specify a
       specific instance for whom itself and all of its descendants should be
       ignored by this function. This can be useful when, for example, looking to
-      see if any `Class.BasePart`s are inside a `Class.BasePart` other than the
-      `Class.BasePart` itself.
+      see if any `Class.BasePart|BaseParts` are inside a `Class.BasePart` other
+      than the `Class.BasePart` itself.
 
       ```
       local min = part.Position - (0.5 * part.Size)
@@ -697,7 +705,7 @@ methods:
       `Class.WorldRoot:IsRegion3EmptyWithIgnoreList()`.
 
       This function only returns if a region is empty or not. Developers looking
-      to find `Class.BasePart`s in a region should use
+      to find `Class.BasePart|BaseParts` in a region should use
       `Class.WorldRoot:FindPartsInRegion3()`.
 
       #### How do Region3 checks work?
@@ -809,7 +817,7 @@ methods:
       you're using a `Datatype.CFrame` to help create the ray components,
       consider using `Datatype.CFrame.LookVector` as the directional vector and
       multiply it by the desired length as shown in the example below. The
-      maximum length of the direction vector is 5,000 studs.
+      maximum length of the direction vector is 15,000 studs.
 
       This method does **not** use a `Datatype.Ray` object, but its origin and
       direction components can be borrowed from `Datatype.Ray.Origin` and
@@ -845,6 +853,30 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Safe
+  - name: WorldRoot:Shapecast
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: part
+        type: BasePart
+        default:
+        summary: ''
+      - name: direction
+        type: Vector3
+        default:
+        summary: ''
+      - name: params
+        type: RaycastParams
+        default: RaycastParams{IgnoreWater=false, BruteForceAllSlow=false, RespectCanCollide=false, CollisionGroup=Default, FilterDescendantsInstances={}}
+        summary: ''
+    returns:
+      - type: RaycastResult
+        summary: ''
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
   - name: WorldRoot:Spherecast
     summary: |
       Casts a spherical shape in a given direction and returns a
@@ -865,8 +897,8 @@ methods:
       and the `Datatype.RaycastResult.Position|Position` property represents the
       intersection point that causes the hit.
 
-      This method throws an error if it is passed invalid `Datatype.CFrame`,
-      size, or direction inputs.
+      This method throws an error if it is passed invalid radius or direction
+      inputs.
     code_samples:
       - worldroot---spherecast
     parameters:
@@ -879,13 +911,15 @@ methods:
         type: float
         default:
         summary: |
-          The radius of the cast spherical shape in studs.
+          The radius of the cast spherical shape in studs. The maximum radius is
+          256 studs.
       - name: direction
         type: Vector3
         default:
         summary: |
           Direction of the shapecast, with the magnitude representing the
-          maximum distance the shape can travel.
+          maximum distance the shape can travel. The maximum distance is 1024
+          studs.
       - name: params
         type: RaycastParams
         default: RaycastParams{IgnoreWater=false, BruteForceAllSlow=false, RespectCanCollide=false, CollisionGroup=Default, FilterDescendantsInstances={}}

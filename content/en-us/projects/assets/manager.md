@@ -1,6 +1,6 @@
 ---
 title: Asset Manager
-description: The Asset Manager lets you manage places and bulk inport assets into your experience.
+description: The Asset Manager lets you manage places and bulk import assets into your experience.
 ---
 
 The **Asset Manager** lets you manage [places](../../production/publishing/publishing-experiences-and-places.md) and bulk import assets into your experience, including [images](../../parts/textures-decals.md), [meshes](../../parts/meshes.md), [packages](../../projects/assets/packages.md), [audio](../../sound/assets.md), and [models](../../parts/models.md).
@@ -37,7 +37,7 @@ The **bulk import** tool is ideal for importing up to 50 files in one batch. Imp
   </tr>
   <tr>
     <td>**Audio**</td>
-    <td>You can import audio assets that you are certain you have permission to use in either `.mp3` or `.ogg` format. If you're uncertain whether you have permission to use an audio file, the [Creator Marketplace](../../production/publishing/creator-marketplace.md) has a variety of free-to-use audio, including more than 100,000 professionally-produced sound effects. See [Audio Assets](../../sound/assets.md) for details.</td>
+    <td>You can import audio assets that you are certain you have permission to use in either `.mp3` or `.ogg` format. If you're uncertain whether you have permission to use an audio file, the [Creator Store](../../production/publishing/creator-store.md) has a variety of free-to-use audio, including more than 100,000 professionally-produced sound effects. See [Audio Assets](../../sound/assets.md) for details.</td>
   </tr>
 </tbody>
 </table>

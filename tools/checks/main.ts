@@ -32,6 +32,7 @@ import {
   RETEXT_INAPPROPRIATE,
   RETEXT_PROFANITIES,
   RETEXT_SPELL,
+  compileMdx,
   getReTextAnalysis,
 } from './utils/retext.js';
 import { Emoji, Locale } from './utils/utils.js';
@@ -40,6 +41,7 @@ import {
   allowedHttpLinksTextFileFullPath,
   checkContentLinks,
   allNonRobloxHttpLinks,
+  checkUnusedAssets,
 } from './utils/links.js';
 import {
   addToSummaryOfRequirements,
@@ -56,7 +58,6 @@ let missSpelledWords: string[] = [];
 
 const getFilesToCheck = async () => {
   console.log(`::group::${Emoji.OpenFileFolder} Getting changed files`);
-  console.log('Checking only Markdown files...');
   if (config.files === FileOption.All) {
     filesToCheck.push(
       ...getAllContentFileNamesWithExtension({
@@ -197,6 +198,15 @@ try {
       }
       processRetextVFileMessages({ retextVFile, filePathFromRepoRoot });
     }
+    if (isMarkdownFile) {
+      const mdxVFileMessage = (await compileMdx(fileContent)) as VFileMessage;
+      if (mdxVFileMessage) {
+        processRetextVFileMessage({
+          message: mdxVFileMessage,
+          filePathFromRepoRoot,
+        });
+      }
+    }
     if (config.checkHttpLinks || config.checkRelativeLinks) {
       checkContentLinks({
         config,
@@ -219,6 +229,9 @@ try {
       });
     }
     console.log('::endgroup::');
+  }
+  if (config.checkUnusedAssets) {
+    checkUnusedAssets({ config });
   }
   if (config.debug) {
     writeListToFile(

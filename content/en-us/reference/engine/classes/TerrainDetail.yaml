@@ -48,7 +48,7 @@ properties:
       The face this TerrainDetail overrides.
     description: |
       Face that this TerrainDetail overrides. When more than one TerrainDetail
-      objects with the same face exsit under a MaterialVariant, only one of them
+      objects with the same face exist under a MaterialVariant, only one of them
       works.
     code_samples: []
     type: TerrainFace
@@ -140,8 +140,6 @@ properties:
       editor as if it were displayed on a surface, normals pointing towards the
       right side of the screen should appear more red, and normals pointing
       towards the top side of your screen should appear more green.
-
-      ![Bread normal map](/assets/legacy/bread-nmap.png)
 
       The terms "DirectX format" and "OpenGL format" are sometimes used to
       describe whether the G channel of the normal map is inverted or not.

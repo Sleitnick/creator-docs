@@ -12,17 +12,17 @@ You can insert [creator-uploaded meshes](#inserting-meshes) or import [custom me
 
 ## Inserting Meshes
 
-### Creator Marketplace
+### Creator Store
 
-You can browse thousands of user-uploaded meshes from the [Creator Marketplace](../production/publishing/creator-marketplace.md) through the **Marketplace** tab of the [Toolbox](../projects/assets/toolbox.md).
+You can browse thousands of user-uploaded meshes from the **Creator Store** tab of the [Toolbox](../projects/assets/toolbox.md).
 
-1. Navigate to the **View** tab and select **Toolbox**.
+1. Navigate to the [View](../studio/view-tab.md) tab and select **Toolbox**.
 
-   <img src="../assets/studio/general/View-Tab-Toolbox.png" width="760" alt="Toolbox toggle button in Studio" />
+   <img src="../assets/studio/general/View-Tab-Toolbox.png" width="776" alt="Toolbox toggle button in Studio" />
 
-1. From the **Marketplace** tab, select the category dropdown and choose **Meshes**.
+1. From the **Creator Store** tab, select the category dropdown and choose **Meshes**.
 
-   <img src="../assets/studio/toolbox/Marketplace-Meshes.png" width="360" />
+   <img src="../assets/studio/toolbox/Creator-Store-Meshes.png" width="360" />
 
 1. In the **Search** field, type anything you'd like to find.
 1. Either click or drag-and-drop a mesh to insert it into the viewport.
@@ -112,9 +112,36 @@ You can use the `Class.SurfaceAppearance` instance to override a mesh's `Class.M
 
 ## Collision Fidelity
 
-The `Class.MeshPart.CollisionFidelity|CollisionFidelity` property determines how closely the visual representation of the object matches the physical bounds, or hitbox, of the object.
+The `Class.MeshPart.CollisionFidelity|CollisionFidelity` property determines how closely the visual representation of a mesh matches its physical bounds. It has the following options, in order of fidelity and performance impact from lowest to highest:
 
-See [here](../workspace/collisions.md#collision-fidelity) for an approximation of the `Class.MeshPart.CollisionFidelity|CollisionFidelity` options and outcomes.
+- **Box** — Creates a bounding collision box, ideal for small or non-interactive objects.
+- **Hull** — Generates a convex hull, suitable for objects with less pronounced indentations or cavities.
+- **Default** — Produces an approximate collision shape that supports concavity, suitable for complex objects with semi-detailed interaction needs.
+- **PreciseConvexDecomposition** — Offers the most precise fidelity but still not a 1:1 representation of the visual. This option has the most expensive performance cost and takes longer for the engine to compute.
+
+<Tabs>
+  <TabItem label="Original Mesh">
+    <img src="../assets/physics/collisions/Collision-Fidelity-MeshPart.jpg" width="600" height="500" alt="Original mesh of castle tower" />
+  </TabItem>
+	<TabItem label="Default">
+    <img src="../assets/physics/collisions/Collision-Fidelity-Default.jpg" width="600" height="500" alt="Collision fidelity of Default shown for mesh" />
+  </TabItem>
+  <TabItem label="Box">
+    <img src="../assets/physics/collisions/Collision-Fidelity-Box.jpg" width="600" height="500" alt="Collision fidelity of Box shown for mesh"/>
+  </TabItem>
+	<TabItem label="Hull">
+    <img src="../assets/physics/collisions/Collision-Fidelity-Hull.jpg" width="600" height="500" alt="Collision fidelity of Hull shown for mesh" />
+  </TabItem>
+	<TabItem label="Precise">
+    <img src="../assets/physics/collisions/Collision-Fidelity-Precise.jpg" width="600" height="500" alt="Collision fidelity of PreciseConvexDecomposition shown for mesh" />
+  </TabItem>
+</Tabs>
+
+<Alert severity="info">
+To visualize collision fidelity in Studio, open **File** > **Studio Settings** > **Studio** > **Visualization**, then enable **Show Decomposition Geometry**.
+</Alert>
+
+For more information on the performance impact of collision fidelity options and how to mitigate them, see [Performance Optimization](../projects/performance-optimization/computation.md#physics). For an in-depth walkthrough on how to choose a collision fidelity option that balances your precision and performance requirements, see [Set Physics and Rendering Parameters](../tutorials/environmental-art/assemble-an-asset-library.md#collisionfidelity).
 
 ## Level of Detail
 

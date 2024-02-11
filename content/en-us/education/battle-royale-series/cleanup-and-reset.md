@@ -226,7 +226,7 @@ When players move into the transition state, remove their weapons.
          weapon:Destroy()
        end
 
-       -- If theplayer has the weapon in their backpack
+       -- If the player has the weapon in their backpack
        local backpackWeapon = whichPlayer.Backpack:FindFirstChild("Weapon") 
 
        if backpackWeapon then
@@ -279,7 +279,7 @@ Cleanup will be its own function in MatchManager. For now, cleanup will just use
 
    ```
 
-2. Next, call the cleanup function. Open **GameManager** and find the while true do loop. So players have weapons removed during the ending intermission, call `matchManager.cleanupMatch()` before the last `task.wait()`.
+2. Next, call the cleanup function. Open **GameManager** and find the while true do loop. So players have weapons removed during the ending intermission, call `matchManager.cleanupMatch()` before the last `Library.task.wait()`.
 
    ```lua
    while true do

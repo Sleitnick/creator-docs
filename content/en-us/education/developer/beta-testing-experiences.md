@@ -144,8 +144,6 @@ Some recommendations for running an open access beta are below.
 - Encourage users to join a Roblox group connected to the experience, or social community such as Discord. This provides users an avenue to leave feedback.
 - Inform users that the experience is in a beta state. This can be done by adding the tag _Beta_ to the experience title and using in-experience pop-ups to set expectations as to the occasional bug or unfinished feature.
 
-<img src="../../assets/education/beta-testing-edu-experiences/BetaTestingGame.png"/>
-
 <figure>
   <img
     alt="Picture of Roblox game with beta tag"
@@ -291,7 +289,7 @@ Roblox provides a variety of built-in analytics using the [Analytics Dashboard](
     <td>
       <ul>
       <li ><strong>Demographics</strong> - commonly used devices, ages</li>
-      <li ><strong>Retention and Engagemen</strong>t- Metrics such as D1, D7 retention, average session time, drop-off, etc.</li>
+      <li ><strong>Retention and Engagement</strong> - Metrics such as D1, D7 retention, average session time, drop-off, etc.</li>
       </ul>
     </td>
    </tr>

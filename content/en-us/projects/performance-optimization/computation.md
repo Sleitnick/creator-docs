@@ -61,7 +61,7 @@ graphics set to the automatic setting.
 
 To check the frame rate of your experience:
 
-- On the client, press `Shift + F5`.
+- On the client, press <kbd>Shift</kbd><kbd>F5</kbd>.
 - In Studio settings, under the **View** Tab, select **Stats** > **Summary** to
    enable debug stats. <Alert severity="warning"> Note, performance stats in
    Studio are skewed by the Studio application, so  you should view the frame
@@ -102,8 +102,10 @@ computation to be expensive.
   of `Class.RunService` without limiting the frequency, means these operations
   will be repeated every frame which often results in an unnecessary increase in
   computation time. These events include:
-  - `Class.RunService.RenderStepped`
-  - `Class.RunService.Stepped`
+  - `Class.RunService.PreAnimation`
+  - `Class.RunService.PreRender`
+  - `Class.RunService.PreSimulation`
+  - `Class.RunService.PostSimulation`
   - `Class.RunService.Heartbeat`
 
 <h4>How to Mitigate</h4>
@@ -122,16 +124,20 @@ computation to be expensive.
 
 <table>
   <tr>
-    <th>**Scope**</th>
-    <th>**Associated Computation**</th>
+    <th>Scope</th>
+    <th>Associated Computation</th>
   </tr>
   <tr>
-    <td>RunService.RenderStepped</td>
-    <td>Code executing on the RenderStepped event</td>
+    <td>RunService.PreRender</td>
+    <td>Code executing on the PreRender event</td>
   </tr>
   <tr>
-    <td>RunService.Stepped</td>
+    <td>RunService.PreSimulation</td>
     <td>Code executing on the Stepped event</td>
+  </tr>
+  <tr>
+    <td>RunService.PostSimulation</td>
+    <td>Code executing on Heartbeat event</td>
   </tr>
   <tr>
     <td>RunService.Heartbeat</td>
@@ -196,20 +202,20 @@ You can carry out the following tasks to help mitigate computation issues:
     invisible parts when possible.
   - For objects that don't require collisions, disable collisions and use box or
     hull fidelity, since the collision geometry is still stored in memory.
-  - You can render collision geometry for debug purposes in Studio using
-    **Settings**>**Studio**>**Show Decomposition**.
+  - You can render collision geometry for debug purposes in Studio using **File** > **Studio Settings** > **Studio** > **Visualization** > **Show Decomposition Geometry**
 
     Alternatively, you can apply
     the `CollisionFidelity=Precise` filter to the Explorer, which shows a count
     of all mesh parts with the precise fidelity and allows you to easily select
     them.
+  - For an in-depth walkthrough on how to choose a collision fidelity option that balances your precision and performance requirements, see [Set Physics and Rendering Parameters](../../tutorials/environmental-art/assemble-an-asset-library.md#collisionfidelity).
 
 <h4>MicroProfiler Timing Scopes Associated</h4>
 
 <table>
   <tr>
-    <th>**Scope**</th>
-    <th>**Associated Computation**</th>
+    <th>Scope</th>
+    <th>Associated Computation</th>
   </tr>
   <tr>
     <td>physicsStepped</td>
@@ -311,9 +317,7 @@ something. Draw calls have significant overhead, and generally the fewer draw
 calls a frame the engine makes the less computational time is spent rendering a
 frame.
 
-You can see how many draw calls are currently occurring with the **Render
-Stats**>**Timing** item in Studio. You can view **Render Stats** in the client by
-pressing `Shift+F2`.
+You can see how many draw calls are currently occurring with the **Render Stats**&nbsp;&rarr; **Timing** item in Studio. You can view **Render Stats** in the client by pressing <kbd>Shift</kbd><kbd>F2</kbd>.
 
 The more objects that need to be drawn in your scene in a given frame, the more
 draw calls are made to the GPU. However, the Roblox engine utilizes a process

@@ -66,9 +66,9 @@ After [setting up](#setting-up-a-topic-for-messaging) a **topic**, you can publi
 
    1. Navigate to the [Creator Dashboard](https://create.roblox.com/dashboard/creations).
    1. Find the experience that you want to publish your messages to.
-   1. Click the **&ctdot;** button on the target experience's thumbnail to display a list of options, then select **Copy&nbsp;Universe&nbsp;ID**.
+   1. Click the **&ctdot;** button on the target experience's thumbnail to display a list of options, then select **Copy Universe ID**.
 
-      <img src="../../assets/creator-dashboard/Experience-Menu-Copy-Universe-ID.png" width="420" />
+      <img src="../../assets/creator-dashboard/Experience-Context-Menu-Copy-Universe-ID.png" width="420" alt="Copy Universe ID option from Creator Dashboard" />
 
 3. Add the API Key in the `x-api-key` header of a `POST` request to the API like the following example:
 
@@ -105,7 +105,7 @@ To use Messaging Service API for your application and request permissions from y
    https://www.authorize.roblox.com?client_id=816547628409595165403873012&redirect_uri=https://my-app.com/redirect&scope=openid+universe-messaging-service:publish&response_type=Code&prompts=login+consent&nonce=12345&state=6789
    ```
 
-3. Request access to the `universeId` of the experience that the user wants to publish their messages to. Your application can send a `POST` request to the [token resources endpoint](../../reference/cloud/oauth2/tokens.md#post-v1tokenresources) with the access token, client ID and secret or the `code challenge` , depending on your [implementation of your authorization flow](../../cloud/open-cloud/oauth2-overview.md#implementing-authorization-flows), as request parameters to get a list of `universeIds` of experiences that the user granted permission to:
+3. Request access to the `universeId` of the experience that the user wants to publish their messages to. Your application can send a `POST` request to the [token resources endpoint](../../reference/cloud/oauth2/tokens.md#post-v1tokenresources) with the access token, client ID and secret or the `code challenge`, depending on your [implementation of your authorization flow](../../cloud/open-cloud/oauth2-overview.md#implementing-authorization-flows), as request parameters to get a list of `universeIds` of experiences that the user granted permission to:
 
    ```bash title="Example Request"
    curl --location --request POST 'https://apis.roblox.com/oauth/v1/token/resources' \

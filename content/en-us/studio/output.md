@@ -7,7 +7,7 @@ The **Output** window, accessible from the [View](./view-tab.md) tab, displays e
 
 <img src="../assets/studio/general/View-Tab-Output.png" width="876" alt="Output button indicated in View tab of Studio" />
 
-You can customize the output through the following elements:
+Plugins can interact with the output window through `Class.LogService`, which can record and clear the output window contents. You can customize the output through the following elements:
 
 <img src="../assets/studio/general/Output-Window-Diagram.png" width="820" alt="Sections of Output window indicated by lettered pointers" />
 
@@ -25,7 +25,7 @@ You can customize the output through the following elements:
 </Grid>
 <Grid container spacing={2}>
 	<Grid item><img src="../assets/misc/Box-Label-D.png" width="40" /></Grid>
-	<Grid item xs={10} sm={11} md={11} lg={11} style={{margin:"9px 0px;"}}> Clears all output messages from the window. This action has a shortcut of <kbd>Ctrl</kbd><kbd>K</kbd> on Windows or <kbd>⌘</kbd><kbd>K</kbd> on macOS.</Grid>
+	<Grid item xs={10} sm={11} md={11} lg={11} style={{margin:"9px 0px;"}}> Clears all output messages from the window. This action has a shortcut of <kbd>Ctrl</kbd><kbd>K</kbd> on Windows or <kbd>⌘</kbd><kbd>K</kbd> on Mac.</Grid>
 </Grid>
 <Grid container spacing={2}>
 	<Grid item><img src="../assets/misc/Box-Label-E.png" width="40" /></Grid>

@@ -22,16 +22,19 @@ items:
     deprecation_message: ''
   - name: Shoes
     value: 3
-    summary: ''
+    summary: |
+      A bundle of left shoe and right shoe.
     tags: []
     deprecation_message: ''
   - name: DynamicHead
     value: 4
-    summary: ''
+    summary: |
+      A bundle consisting of dynamicHead and moodAnimation assets, optionally
+      with eyebrowAccessory and eyelashAccessory.
     tags: []
     deprecation_message: ''
   - name: DynamicHeadAvatar
-    value: 5
     summary: ''
+    value: 5
     tags: []
     deprecation_message: ''

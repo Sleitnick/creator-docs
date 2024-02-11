@@ -36,6 +36,13 @@ You can toggle appearance of the **chat window** and **input bar** in one of two
   end
   ```
 
+By default, when enabling both the chat window and the chat bar, the chat bar attaches to the chat window on the UI. You can obtain their read-only properties on their positions and sizes and use them to calculate the total size of the combination:
+
+- `Class.ChatWindowConfiguration.AbsolutePosition`
+- `Class.ChatWindowConfiguration.AbsoluteSize`
+- `Class.ChatInputBarConfiguration.AbsolutePosition`
+- `Class.ChatInputBarConfiguration.AbsoluteSize`
+
 ### Chat Window Customization
 
 You can customize the default chat window to match your experience's UI layout, design, and style by using the following properties in Studio:
@@ -122,7 +129,7 @@ You can customize the appearance of chat message bodies and prefixes using [rich
 
 ### Adding Chat Tags
 
-If your experience has users with special [attributes](../studio/instance-attributes.md) like VIP status, you can attach chat tags wrapped in brackets to the front of user messages to highlight their chat messages. The following `Class.LocalScript` in `Class.StarterPlayerScripts` examines all `Class.Player` instances representing users in your experience and appends VIP chat tags for those with the `IsVIP` attribute.
+If your experience has users with special [attributes](../studio/properties.md#instance-attributes) like VIP status, you can attach chat tags wrapped in brackets to the front of user messages to highlight their chat messages. The following `Class.LocalScript` in `Class.StarterPlayerScripts` examines all `Class.Player` instances representing users in your experience and appends VIP chat tags for those with the `IsVIP` attribute.
 
 ```lua title='LocalScript' highlight='4,5,9-11'
 local TextChatService = game:GetService("TextChatService")
@@ -173,6 +180,31 @@ TextChatService.OnIncomingMessage = function(textChatMessage: TextChatMessage)
 
 	return properties
 end
+```
+
+### Customizing Translated Messages
+
+By default, Roblox [automatically translates](../production/localization/automatic-translations.md) text chat messages based on users' language settings. To apply message customizations to translated messages, use the `Class.TextChatMessage.Translation` property. The following example, a `Class.Script` in `Class.ReplicatedStorage` with its `Enum.RunContext` property as `Client`, sets the font color of translated messages to the same color as untranslated messages.
+
+```lua title='Script'
+local TextChatService = game:GetService("TextChatService")
+
+local FONT_COLOR = "#FF007F"
+local FORMAT_STRING = `<font color='{FONT_COLOR}'>%s</font>`
+
+local function onIncomingChatMessage(textChatMessage: TextChatMessage)
+	local properties = Instance.new("TextChatMessageProperties")
+
+	properties.Text = string.format(FORMAT_STRING, textChatMessage.Text)
+
+	if textChatMessage.Translation then
+		properties.Translation = string.format(FORMAT_STRING, textChatMessage.Translation)
+	end
+
+	return properties
+end
+
+TextChatService.OnIncomingMessage = onIncomingChatMessage
 ```
 
 ## Adding Chat Bubbles

@@ -1,6 +1,6 @@
 ---
 title: Else/If Practice with Giving Points
-description: Create a part that gives players points using if and else statments in Roblox Lua.
+description: Create a part that gives players points using if and else statements in Roblox Lua.
 next: /tutorials/fundamentals/coding-4/landing
 prev: /tutorials/fundamentals/coding-3/multiple-conditions
 ---
@@ -86,7 +86,9 @@ To award points, you'll need to get access to the player's information which is 
 
 You can do so by adding the **Players** service to your script. **Services** are additional sets of pre-built functions made by Roblox engineers to save you time.
 
-1. Get the **Players** service by typing: `local Players = game:GetService("Players")`
+1. Get the **Players** service by typing:
+
+   `local Players = game:GetService("Players")`
 
    ```lua
    -- Points values
@@ -139,7 +141,7 @@ PointsScript will need two functions. The first function will give and subtract 
 4. If a player touched the part, it'll be stored inside the player variable. If not, the variable will stay empty. On your own:
 
    - Inside the function, check if player has a value. If there is, then call `givePoints(player)`.
-   - Beneath the function, connect `partTouched()` to `pointPart`'s Touched event.
+   - Beneath the function, connect `partTouched()` to the Touched event of `pointPart`.
 
    ```lua
    -- Checks if player touched the part
@@ -189,7 +191,7 @@ To loop through colors, the script will use a while =loop that changes the part'
    If the while true do loop is not at the bottom of the script, any code below it will never be run. Since the while loop doesn't stop, it'll keep running the loop instead of any code below it.
    </Alert>
 
-2. On your own, code a while true do loop that changes pointPart to the color variables you've created. Don't forget to use `wait()` between colors. When finished, check your code against the version below.
+2. On your own, code a while true do loop that changes pointPart to the color variables you've created. Don't forget to use `Library.task.wait()` between colors. When finished, check your code against the version below.
 
    ```lua
    -- Loops through 3 colors, waiting between each color
@@ -265,7 +267,7 @@ Next, you'll use if and elseif to give or subtract points depending on the color
    	local playerPoints= playerStats:WaitForChild("Points")
 
    	if currentColor == blue then
-   		playerPoints.Value = playerPoints.Value + smallPoints
+   		playerPoints.Value += smallPoints
    	end
    end
    ```
@@ -274,9 +276,9 @@ Next, you'll use if and elseif to give or subtract points depending on the color
 
    ```lua
    if currentColor == blue then
-   	playerPoints.Value = playerPoints.Value + smallPoints
+   	playerPoints.Value += smallPoints
    elseif currentColor == green then
-   	playerPoints.Value = playerPoints.Value + largePoints
+   	playerPoints.Value += largePoints
    end
    ```
 
@@ -284,11 +286,11 @@ Next, you'll use if and elseif to give or subtract points depending on the color
 
    ```lua
    if currentColor == blue then
-   	playerPoints.Value = playerPoints.Value + smallPoints
+   	playerPoints.Value += smallPoints
    elseif currentColor == green then
-   	playerPoints.Value = playerPoints.Value + largePoints
+   	playerPoints.Value += largePoints
    else
-   	playerPoints.Value = playerPoints.Value - losePoints
+   	playerPoints.Value -= losePoints
    end
    ```
 
@@ -296,11 +298,11 @@ Next, you'll use if and elseif to give or subtract points depending on the color
 
    ```lua
    if currentColor == blue then
-   	playerPoints.Value = playerPoints.Value + smallPoints
+   	playerPoints.Value += smallPoints
    elseif currentColor == green then
-   	playerPoints.Value = playerPoints.Value + largePoints
+   	playerPoints.Value += largePoints
    else
-   	playerPoints.Value = playerPoints.Value - losePoints
+   	playerPoints.Value -= losePoints
    end
 
    pointPart:Destroy()
@@ -350,7 +352,7 @@ The particle effect will be the same color as the part when touched. Since the c
    particle.Parent = playerCharacter:WaitForChild("Head")
    ```
 
-4. Use `task.wait()` for a quick second, then destroy the particles.
+4. Use `Library.task.wait()` for a quick second, then destroy the particles.
 
    ```lua
    local particle = Instance.new("ParticleEmitter")
@@ -404,14 +406,14 @@ local function givePoints(player)
 	
 	-- Gives player gold based on the color of the part
 	if currentColor == blue then
-		playerPoints.Value = playerPoints.Value + smallPoints
+		playerPoints.Value += smallPoints
 	elseif currentColor == green then
-		playerPoints.Value = playerPoints.Value + largePoints
+		playerPoints.Value += largePoints
 	else
-		playerPoints.Value = playerPoints.Value - losePoints
+		playerPoints.Value -= losePoints
 	end
 
-	-- Destroy the part, wait a second, and thne destroy the particle
+	-- Destroy the part, wait a second, and then destroy the particle
 	pointPart:Destroy()
 	
 	-- Creates a sparkles effect and destroys it

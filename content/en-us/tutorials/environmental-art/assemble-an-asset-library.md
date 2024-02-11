@@ -103,7 +103,7 @@ To create `Class.SurfaceAppearance` packages that you can child to your modular 
 
 4. Select the **Albedo** texture map for the corresponding tileable texture, then the **Open** button. The file browser closes, and the **ColorMap** property updates with a new assetID.
 5. Repeat this process for the **MetalnessMap**, **NormalMap**, and **RoughnessMap** properties, selecting their respective texture maps from the file browser.
-6. In the **Explorer** window, right-click the **SurfaceAppearance** object, then select **Convert to Packag**e from the contextual menu. The **Convert to Package** dialog displays.
+6. In the **Explorer** window, right-click the **SurfaceAppearance** object, then select **Convert to Package** from the contextual menu. The **Convert to Package** dialog displays.
 
    <img src="../../assets/studio/packages/Contextual-Menu-Convert.png" width="300" />
 
@@ -145,7 +145,7 @@ When you go through the process of unwrapping the UVs of a mesh in third-party m
 
 To apply `Class.SurfaceAppearance` texture map data to unwrapped meshes in your asset library:
 
-1. In the **Explorer** window, click your **SurfaceAppearance** package, then press <kbd>Ctrl</kbd> + <kbd>D</kbd> or <kbd>⌘</kbd> + <kbd>D</kbd> to duplicate it.
+1. In the **Explorer** window, click your **SurfaceAppearance** package, then press <kbd>Ctrl</kbd><kbd>D</kbd> (<kbd>⌘</kbd><kbd>D</kbd>) to duplicate it.
 2. Child the duplicate **SurfaceAppearance** package to either a modular asset or a prop. The asset applies its UV data to the texture maps and displays its visual treatment.
 3. Repeat this process for each modular asset and prop.
 

@@ -525,7 +525,7 @@ functions:
       Level 1 is the function calling `setfenv()`. `setfenv()` returns the given
       function.
 
-      If `f` is ` 0``, then  `setfenv()` changes the environment of the running
+      If `f` is `0`, then `setfenv()` changes the environment of the running
       thread and returns no values.
     parameters:
       - name: f
@@ -614,7 +614,7 @@ functions:
         type: int
         default: 10
         summary: |
-          The numerical base to convert _arg_ into.
+          The numerical base to convert `arg` into.
     returns:
       - type: Variant
         summary: ''
@@ -669,8 +669,8 @@ functions:
     summary: |
       Returns all elements from the given list as a tuple.
     description: |
-      Returns the elements from the given table. By default, _i_ is 1 and _j_ is
-      the length of _list_, as defined by the length operator.
+      Returns the elements from the given table. By default, `i` is 1 and `j` is
+      the length of `list`, as defined by the length operator.
     parameters:
       - name: list
         type: table
@@ -681,12 +681,12 @@ functions:
         type: int
         default: 1
         summary: |
-          The starting index to unpack from.
+          The index of the first element to unpack.
       - name: j
         type: int
         default: '#list'
         summary: |
-          The number of elements to unpack.
+          The index of the last element to unpack.
     returns:
       - type: Variant
         summary: ''

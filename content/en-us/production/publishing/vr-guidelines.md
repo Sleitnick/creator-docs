@@ -15,10 +15,11 @@ If you test an experience on the Quest&nbsp;2 and are not pleased with the visua
 
 ## Comfort Settings
 
-When users experience VR, movement of their camera/position can cause some discomfort due to the disconnect between what they see and the lack of motion detected by their body and inner ear. Roblox provides multiple settings to help users of all sensitivity levels, so everyone can enjoy an immersive and comfortable VR experience while playing.
+When users experience VR, movement of their camera/position can cause some discomfort due to the disconnect between what they see and the lack of motion detected by their body and inner ear. Roblox provides multiple settings to help users of all sensitivity levels, so everyone can enjoy an immersive and comfortable VR experience while playing. In addition to **Comfort**, **Default**, and **Expert** modes, the user may choose **Custom** to individually turn the following settings on and off:
 
 - **Vignette** — An overlay is displayed during motion which restricts the user's peripheral vision during motion and conceals camera teleports.
-- **Smooth Rotation** — The camera uses smooth rotation for 1st and 3rd person camera modes, versus the default stepped rotation (teleporting to the next rotated position) when rotating the camera with the controller.
+- **Stepped Rotation** — The camera uses stepped rotation (teleporting to the next rotated position) for 1st-person and 3rd-person camera modes, versus the smooth rotation mode when rotating the camera with the controller.
+- **3rd Person Fixed Camera** - The camera is fixed in space and does not closely follow the player. The camera will teleport in order to keep the player in view.
 
 Additional information can be found at [VR Menus and Settings](https://en.help.roblox.com/hc/en-us/articles/15703381902740-VR-Menus-and-Settings).
 
@@ -47,7 +48,7 @@ The following best practices may help you reach 72 frames per second with a high
 
 - Enable [instance streaming](../../workspace/streaming.md) so that content is streamed in and out dynamically on the device.
 - Be careful to not overuse CPU-heavy computations like [raycasting](../../workspace/raycasting.md).
-- Avoid the usage of `Library.task.wait()` over `Class.RunService` frame updates. `Library.task.wait()` will not give you precise results compared to connecting to `Class.RunService.Stepped`.
+- Avoid the usage of `Library.task.wait()` over `Class.RunService` frame updates. `Library.task.wait()` will not give you precise results compared to connecting to `Class.RunService.Heartbeat`.
 - Mobile VR is sensitive to a high number of draw calls. Build your environments efficiently, adding high detail where it really matters and lower detail elsewhere while being conservative with the number of objects used in the scene.
 - When creating custom 3D meshes, always strive to use as little geometry as possible for maximum runtime efficiency.
 - Minimize the number of semi-transparent objects and textures with partial transparency such as `Class.Decal|Decals` or the `Enum.Material|Glass` material.

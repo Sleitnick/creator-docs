@@ -71,7 +71,10 @@ The [Immersive Ads](../../production/monetization/immersive-ads.md) system allow
 
 [Subscriptions](../../production/monetization/subscriptions.md) within experiences let you offer users recurring benefits for a monthly fee.
 
-<img src="../../assets/monetization/developer-products/subscriptions.png" width="800" />
+<figure>
+  <img src="../../assets/monetization/subscriptions/Example-Subscriptions.png" width="600" />
+  <figcaption>Examples of experience subscriptions</figcaption>
+</figure>
 
 ### Developer Products
 
@@ -83,7 +86,7 @@ A [Developer Product](../../production/monetization/developer-products.md) is an
 
 A [Pass](../../production/monetization/game-passes.md) allows you to charge a **one-time Robux fee** in order for users to access special privileges within an experience, such as entry to a restricted area, an in-experience avatar item, or a permanent power-up.
 
-<img src="../../assets/monetization/game-passes/Passes-Listing.png" width="800" />
+<img src="../../assets/monetization/game-passes/passes-sample.png" width="800" />
 
 ### Paid Access
 
@@ -119,7 +122,7 @@ You'll receive a [commission](../../art/marketplace/marketplace-fees-and-commiss
 
 ### Plugins
 
-A [Plugin](../../studio/plugins.md) is an extension that adds additional features or functionality to Studio. You can sell plugins to other creators on the [Creator Marketplace](../../production/publishing/creator-marketplace.md) for Robux, or offer them for free. For more information, see [Publishing Plugins](../../studio/plugins.md#publishing-plugins).
+A [Plugin](../../studio/plugins.md) is an extension that adds additional features or functionality to Studio. You can sell plugins to other creators on the [Creator Store](../../production/publishing/creator-store.md) for Robux, or offer them for free. For more information, see [Publishing Plugins](../../studio/plugins.md#publishing-plugins).
 
 <Alert severity="warning">
    There is a 30 day escrow hold for each purchase. Roblox holds the commission from your items and your Robux share of the sale for 30 days, starting from the date of sale.

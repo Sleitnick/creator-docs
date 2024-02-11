@@ -54,6 +54,10 @@ The following steps show how to set up the server using Guilded or Discord.
 
 After obtaining the third-party server URL, use it to [configure a webhook](../../cloud/webhooks/webhook-notifications.md#configuring-webhooks-on-creator-dashboard) on Creator Dashboard. make sure you perform the following settings:
 
+<Alert severity="info">
+Currently, only group owners can receive Right to Erasure requests for group-owned experiences. To implement the automation solution for a group-owned experience, make sure that the group owner configures the webhook.
+</Alert>
+
 - Add the Guilded or Discord server URL as the **Webhook URL**.
 - Include a custom **Secret**. Though a secret is optional for completing the configuration, you should include one to prevent bad actors from impersonating Roblox and deleting your data. For more information on the usage of a secret, see [Verifying Webhook Security](../../cloud/webhooks/webhook-notifications.md#verifying-webhook-security).
 - Select **Right to Erasure Request** under **Triggers**.
@@ -71,8 +75,8 @@ After you add the webhook, use it to configure the bot with the following steps:
 
 1. Open the **All servers** list by clicking its icon or use the shortcut:
 
-   - <kbd>Control</kbd> + <kbd>S</kbd> on Windows.
-   - <kbd>Command ⌘</kbd> + <kbd>S</kbd> on Mac.
+   - <kbd>Ctrl</kbd><kbd>S</kbd> on Windows.
+   - <kbd>⌘</kbd><kbd>S</kbd> on Mac.
 
 1. Select your server for receiving right to erasure notifications.
 1. Expand the list under **Server home** and select **Manage Bots**.
@@ -113,9 +117,9 @@ For the bot to locate the PII data requested by users for deletion, obtain the f
 - The **Universe ID**, the unique identifier of your experience.
 - The **Start Place ID**, the unique identifier of the start place of an experience.
 
-To obtain these identifiers, open the [Creations](https://create.roblox.com/dashboard/creations?activeTab=Place) page on **Creator Dashboard**. Then select an experience and copy the **Universe&nbsp;ID** and **Start&nbsp;Place&nbsp;ID**.
+To obtain these identifiers, open the [Creations](https://create.roblox.com/dashboard/creations?activeTab=Place) page on **Creator Dashboard**. Then select an experience and copy the **Universe ID** and **Start Place ID**.
 
-<img src="../../assets/creator-dashboard/Experience-Menu-Copy-Universe-ID-Start-Place-ID.png" width="420" alt="Interface showing Universe ID and Start Place ID in experience context menu" />
+<img src="../../assets/creator-dashboard/Experience-Context-Menu-Copy-Universe-ID-Start-Place-ID.png" width="420" alt="Copy Universe ID and Copy Start Place ID options from Creator Dashboard" />
 
 ## Adding Scripts
 

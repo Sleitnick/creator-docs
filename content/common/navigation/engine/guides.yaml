@@ -10,19 +10,12 @@ navigation:
   - title: Coding Fundamentals
     path: /tutorials/fundamentals/coding-1/coding-fundamentals
     navigation: /engine/tutorials-fundamentals.yaml
-  - title: Assistant for Documentation
+  - title: Assistant
     path: /assistant/guide
-    #section:
-    #  - title: Setting Up Roblox Studio
-    #    path: /docs/getting-started/setting-up-roblox-studio
-    #  - title: Introduction to Roblox Studio ## not sure where this is going
-    #    path: /docs/getting-started/introduction-to-roblox-studio  ## this is now /first-experience/
   - heading: Create
-
   - title: Roblox Studio
     path: /studio/
     navigation: /engine/studio.yaml
-
   - title: Projects
     section:
       - title: Overview
@@ -35,8 +28,8 @@ navigation:
             path: /projects/client-server
       - title: Managing
         path: /projects/managing
-      - title: Teleporting
-        path: /projects/teleporting
+      - title: Instance Streaming
+        path: /workspace/streaming
       - title: Working in Teams # needs some work with naming
         section:
           - title: Setting Up a Team
@@ -59,8 +52,6 @@ navigation:
     section:
       - title: Overview
         path: /projects/assets/
-      - title: Packages
-        path: /projects/assets/packages
       - title: Managing
         section:
           - title: Asset Manager
@@ -69,6 +60,10 @@ navigation:
             path: /projects/assets/toolbox
           - title: External Catalog Queries
             path: /projects/assets/api
+      - title: Packages
+        path: /projects/assets/packages
+      - title: Asset Privacy
+        path: /projects/assets/privacy
       - title: In-Experience Asset Creation
         path: /projects/assets/in-experience-asset-creation
   - title: 3D Workspace
@@ -91,8 +86,6 @@ navigation:
         path: /parts/materials
       - title: Terrain
         path: /parts/terrain
-      - title: Streaming
-        path: /workspace/streaming
       - title: Physics
         section:
           - title: Overview
@@ -215,6 +208,8 @@ navigation:
         section:
           - title: Overview
             path: /luau/
+          - title: Comparison to C#
+            path: /luau/luau-csharp-comparison
           - title: Types
             section:
               - title: Nil
@@ -257,7 +252,7 @@ navigation:
                 path: /luau/functions
               - title: Type Coercion
                 path: /luau/type-coercion
-              - title: Luau Type Checking
+              - title: Type Checking
                 path: /luau/type-checking
   - title: Environment
     section:
@@ -267,14 +262,14 @@ navigation:
         path: /environment/lighting
       - title: Atmosphere
         path: /environment/atmosphere
-      - title: Post-Processing Effects
-        path: /environment/post-processing-effects
-      - title: Skyboxes
-        path: /environment/skybox
       - title: Clouds
         path: /environment/clouds
       - title: Global Wind
         path: /environment/global-wind
+      - title: Post-Processing Effects
+        path: /environment/post-processing-effects
+      - title: Skyboxes
+        path: /environment/skybox
   - title: Characters
     section:
       - title: Overview
@@ -293,6 +288,8 @@ navigation:
     section:
       - title: Overview
         path: /players/
+      - title: Teleporting
+        path: /projects/teleporting
       - title: Teams
         path: /players/teams
       - title: Leaderboards
@@ -329,7 +326,7 @@ navigation:
         path: /sound/objects
       - title: Groups
         path: /sound/groups
-      - title: Effects
+      - title: Dynamic Effects
         path: /sound/dynamic-effects
   - title: User Interface
     section:
@@ -355,8 +352,8 @@ navigation:
             path: /ui/proximity-prompts
           - title: Drag Detectors
             path: /ui/drag-detectors
-          - title: Video Assets
-            path: /ui/video-assets
+          - title: Video Frames
+            path: /ui/video-frames
       - title: Layout and Design
         section:
           - title: Layout and Appearance
@@ -409,6 +406,8 @@ navigation:
             path: /chat/bubble-chat
           - title: Migrating to In-Experience Text Chat
             path: /chat/migrate-to-in-experience-text-chat
+          - title: Legacy Chat System
+            path: /chat/legacy/legacy-chat-system
   - title: Cloud Services
     section:
       - title: Data Stores
@@ -427,8 +426,12 @@ navigation:
             path: /cloud-services/memory-stores/queue
           - title: Observability
             path: /cloud-services/memory-stores/observability
+      - title: Experience Notifications
+        path: /cloud-services/experience-notifications
       - title: Cross-Server Messaging
         path: /cloud-services/cross-server-messaging
+  - title: Roblox for Unity Developers
+    path: /unity
 
   - heading: Distribute
   - title: Overview
@@ -459,8 +462,8 @@ navigation:
         section:
           - title: Overview
             path: /production/publishing/publishing-assets
-          - title: Creator Marketplace
-            path: /production/publishing/creator-marketplace
+          - title: Creator Store
+            path: /production/publishing/creator-store
       - title: Guidelines
         section:
           - title: Experience Guidelines
@@ -489,7 +492,7 @@ navigation:
         path: /production/promotion/invite-prompts
       - title: Advertising
         section:
-          - title: Advertising on Roblox
+          - title: Overview
             path: /production/promotion/advertising-on-roblox
           - title: Ads Manager
             path: /production/promotion/ads-manager
@@ -541,14 +544,14 @@ navigation:
     section:
       - title: Overview
         path: /production/localization/
-      - title: Accessing Localization Settings
-        path: /production/localization/accessing-localization-settings
-      - title: Translating Experience Page Information
-        path: /production/localization/translating-experience-page-information
-      - title: Translating In-Experience Content
+      - title: Automatic Translations
+        path: /production/localization/automatic-translations
+      - title: Custom Translations
         section:
           - title: Overview
-            path: /production/localization/translating-in-experience-content
+            path: /production/localization/custom-translations
+          - title: Manually Editing Localization Table
+            path: /production/localization/manual-translations
           - title: Translating Dynamic Content
             path: /production/localization/translating-dynamic-content
           - title: Localizing with Scripting

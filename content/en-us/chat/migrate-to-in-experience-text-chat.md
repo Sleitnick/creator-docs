@@ -3,7 +3,7 @@ title: Migrating from Legacy Chat to In-Experience Text Chat
 description: Explains how to migrate from the Legacy Chat System to the more modern and safe In-Experience Text Chat system.
 ---
 
-The [in-experience text chat system](../chat/in-experience-text-chat.md) offers simplified implementations and modern user interface (UI) of the same feature set as the legacy chat system, providing a more robust and flexible solution for supporting and extending chat in your experience. With this system, you no longer need to fork the chat system manually to add customization and chat commands. Instead, you can simply use engine API classes or the Studio settings to support your chat functionalities.
+The [in-experience text chat system](../chat/in-experience-text-chat.md) offers simplified implementations and modern user interface (UI) of the same feature set as the [legacy chat system](../chat/legacy/legacy-chat-system.md), providing a more robust and flexible solution for supporting and extending chat in your experience. With this system, you no longer need to fork the chat system manually to add customization and chat commands. Instead, you can simply use engine API classes or the Studio settings to support your chat functionalities.
 
 This guide assists you in migrating from the legacy chat system by providing alternative methods for implementing common chat functionalities and behaviors using the in-experience text chat system.
 
@@ -35,18 +35,12 @@ Though both systems share the same basic chat functionalities, the in-experience
       <td>Send a chat message</td>
       <td>`Class.Players:Chat()`</td>
       <td>`Class.TextChannel:SendAsync()`</td>
-      <td>The `Class.TextChatService:SendChat()` method supports more advanced chat features such as rich text formatting and message priority. It also includes built-in filtering to help prevent inappropriate messages from being sent.</td>
-    </tr>
-    <tr>
-      <td>Send a system message</td>
-      <td>`Class.Chat:SystemMessage()`</td>
-      <td>`Class.TextChatService:SystemMessage()`</td>
-      <td></td>
+      <td>The `Class.TextChatService:SendAsync()` method supports more advanced chat features such as rich text formatting and message priority. It also includes built-in filtering to help prevent inappropriate messages from being sent.</td>
     </tr>
     <tr>
       <td>Implement messaging callbacks</td>
       <td>`Class.Chat:InvokeChatCallback()`, `Class.Chat:RegisterChatCallback()`</td>
-      <td>`Class.TextChatService:SendingMessage()`, `Class.TextChatService.OnIncomingMessage()`</td>
+      <td>`Class.TextChatService.SendingMessage`, `Class.TextChatService.OnIncomingMessage`</td>
       <td>The legacy chat system binds a function to chat system events for delivering messages. The two methods of the in-experience text chat system have more flexibilities and customization options.</td>
     </tr>
     <tr>
@@ -54,6 +48,12 @@ Though both systems share the same basic chat functionalities, the in-experience
       <td>`ChatService/ChatCommand` module</td>
       <td>`Class.TextChatCommand`</td>
       <td>The in-experience text chat system has a dedicated class representing a text command for customization rather than using a legacy chat module.</td>
+    </tr>
+    <tr>
+      <td>Display a system message</td>
+      <td>Custom admin command library</td>
+      <td>`Class.TextChannel:DisplaySystemMessage()`</td>
+      <td></td>
     </tr>
     <tr>
       <td>Disable chat</td>

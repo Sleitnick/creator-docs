@@ -13,6 +13,114 @@ tags:
   - NotReplicated
 deprecation_message: ''
 properties: []
-methods: []
-events: []
+methods:
+  - name: CaptureService:CaptureScreenshot
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: onCaptureReady
+        type: Function
+        default:
+        summary: ''
+    returns:
+      - type: void
+        summary: ''
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+  - name: CaptureService:PromptSaveCapturesToGallery
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: contentIds
+        type: Array
+        default:
+        summary: ''
+      - name: resultCallback
+        type: Function
+        default:
+        summary: ''
+    returns:
+      - type: void
+        summary: ''
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+  - name: CaptureService:PromptShareCapture
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: contentId
+        type: Content
+        default:
+        summary: ''
+      - name: launchData
+        type: string
+        default:
+        summary: ''
+      - name: onAcceptedCallback
+        type: Function
+        default:
+        summary: ''
+      - name: onDeniedCallback
+        type: Function
+        default:
+        summary: ''
+    returns:
+      - type: void
+        summary: ''
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+events:
+  - name: CaptureService.CaptureBegan
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters: []
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+  - name: CaptureService.CaptureEnded
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters: []
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+  - name: CaptureService.CaptureSaved
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: captureInfo
+        type: Dictionary
+        default:
+        summary: ''
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+  - name: CaptureService.UserCaptureSaved
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: captureContentId
+        type: Content
+        default:
+        summary: ''
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
 callbacks: []
